@@ -80,18 +80,17 @@ LOOP_TWO:
     
 ;Special Cases 
 
+EXPONENT_ONE:
+    ;BR DONE
+    ST R1, N2theM   ; Store N if M = 1
+    BR DONE
+
 ZERO_CASE:
     ;BR DONE 
     AND R5, R5, #0  ; Set result to 0 if N = 0
     ST R5, N2theM   ; Store N^M = 0 in memory
     BR DONE
-
-EXPONENT_ONE:
-    ;BR DONE
-    ST R1, N2theM   ; Store N if M = 1
-    BR DONE
     
-
 EXPONENT_ZERO:
     ;BR DONE
     AND R5, R5, #0  
