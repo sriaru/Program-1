@@ -32,14 +32,15 @@ LD R2, M          ; loading n to r2
 ADD R5, R5, R1
 BRZ ZERO_CASE     ; If N is zero, branch to ZERO_CASE (N^M = 0)
 
+AND R5, R5, #0    ; Clear R5 
+ADD R5, R5, R2    ; Copy M into R5
+BRZ EXPONENT_ZERO ; If M is zero, branch to EXPONENT_ZERO (N^M = 1)
+
 ; exponent one
 ADD R6, R6, R1
 ADD R2, R2, #-1
 BRZ EXPONENT_ONE  
 
-AND R5, R5, #0    ; Clear R5 
-ADD R5, R5, R2    ; Copy M into R5
-BRZ EXPONENT_ZERO ; If M is zero, branch to EXPONENT_ZERO (N^M = 1)
 
 ;ADD R5, R5, R0
 ;BRZ ZERO_CASE     ; If N is zero, branch to ZERO_CASE (N^M = 0)
